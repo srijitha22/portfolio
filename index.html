@@ -4,65 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Canva Design Portfolio - Srijitha</title>
-
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
-    body{background:#fff7e6;color:#222;}
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #fff7e6; color: #222; }
 
-    header{
-      padding:60px 10%;
-      text-align:center;
-      background:#fff;
-    }
-    h1{font-size:45px;margin-bottom:10px;}
-    p{font-size:18px;color:#444;}
+    header { padding: 60px 10%; text-align: center; background: #fff; }
+    h1 { font-size: 45px; margin-bottom: 10px; }
+    p { font-size: 18px; color: #444; }
 
-    .gallery{padding:60px 10%;}
-    h2{
-      margin-bottom:25px;
-      font-size:32px;
-      text-align:center;
+    .gallery { padding: 60px 10%; }
+    h2 { margin-bottom: 25px; font-size: 32px; text-align: center; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 items in one row */
+      gap: 25px;
     }
 
-    /* ---- 3 images per row ---- */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:25px;
+    .item {
+      height: 340px;
+      border-radius: 12px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .item{
-      height:340px;
-      border-radius:12px;
-      background-size:cover;
-      background-position:center;
-      box-shadow:0 4px 15px rgba(0,0,0,0.15);
-      cursor:pointer;
-      transition:0.3s;
-    }
-    .item:hover{
-      transform:scale(1.03);
-      box-shadow:0 0 20px rgba(0,0,0,0.45);
+    .item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0,0,0,0.45);
     }
 
-    footer{
-      padding:30px;
-      text-align:center;
-      margin-top:60px;
-      background:#111;
-      color:#fff;
-    }
-
-    /* Responsive */
-    @media(max-width:768px){
-      .grid{grid-template-columns:repeat(2,1fr);}
-    }
-    @media(max-width:480px){
-      .grid{grid-template-columns:1fr;}
+    footer {
+      padding: 30px;
+      text-align: center;
+      margin-top: 60px;
+      background: #111;
+      color: #fff;
     }
   </style>
-
 </head>
+
 <body>
 
 <header>
@@ -74,10 +57,8 @@
 <section id="about" style="padding:60px 10%;background:white;">
   <h2>About Me</h2>
   <p style="font-size:18px;line-height:28px;margin-top:10px;">
-    Hi, I’m Srijitha, a Canva Designer who enjoys turning ideas into clean and attractive visual designs. 
-    I create posters, invitations, layouts, and engaging social media posts that look professional and meaningful.<br><br>
-    I focus on simple, neat, and well-balanced designs that communicate the message clearly. Designing helps me express ideas, 
-    learn new techniques, and grow creatively.<br><br>
+    Hi, I’m Srijitha, a Canva Designer who enjoys turning ideas into clean and attractive visual designs.
+    I create posters, invitations, layouts, and engaging social media posts that look professional and meaningful.
     I enjoy experimenting with colors, fonts, and layouts to make every design unique and expressive.
   </p>
 </section>
@@ -92,52 +73,43 @@
     <div class="item" style="background-image:url('images/insta.jpg')"></div>
     <div class="item" style="background-image:url('images/poster.jpg')"></div>
     <div class="item" style="background-image:url('images/insta_post.png')"></div>
-  </div>
-  <br>
-  <div>
-        <div class="item" style="background-image:url('images/CAROUSEL.png')"></div>
-
-  </div>
-  <br>
-  <div>
-            <div class="item" style="background-image:url('images/thumbnail.png')"></div>
-
+    <div class="item" style="background-image:url('images/CAROUSEL.png')"></div>
   </div>
 </section>
 
 <footer>
-  © 2025 Srijitha — Canva Designer Portfolio
+ © 2025 Srijitha — Canva Designer Portfolio
 </footer>
 
 <script>
-const items=document.querySelectorAll('.item');
-items.forEach(it=>{
-  it.addEventListener('click',()=>{
-    const src=it.style.backgroundImage.slice(5,-2);
-    const modal=document.createElement('div');
-    modal.style.position='fixed';
-    modal.style.top=0;
-    modal.style.left=0;
-    modal.style.width='100%';
-    modal.style.height='100%';
-    modal.style.background='rgba(0,0,0,0.8)';
-    modal.style.display='flex';
-    modal.style.alignItems='center';
-    modal.style.justifyContent='center';
-    modal.onclick=()=>modal.remove();
+  // Click to enlarge modal
+  const items = document.querySelectorAll('.item');
+  items.forEach(it => {
+    it.addEventListener('click', () => {
+      const src = it.style.backgroundImage.slice(5, -2);
+      const modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = 0;
+      modal.style.left = 0;
+      modal.style.width = '100%';
+      modal.style.height = '100%';
+      modal.style.background = 'rgba(0,0,0,0.8)';
+      modal.style.display = 'flex';
+      modal.style.alignItems = 'center';
+      modal.style.justifyContent = 'center';
+      modal.onclick = () => modal.remove();
 
-    const img=document.createElement('img');
-    img.src=src;
-    img.style.maxWidth='90%';
-    img.style.maxHeight='90%';
-    img.style.borderRadius='10px';
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.maxWidth = '90%';
+      img.style.maxHeight = '90%';
+      img.style.borderRadius = '10px';
+      modal.appendChild(img);
 
-    modal.appendChild(img);
-    document.body.appendChild(modal);
+      document.body.appendChild(modal);
+    });
   });
-});
 </script>
 
 </body>
 </html>
-
